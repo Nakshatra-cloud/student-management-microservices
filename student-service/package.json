@@ -1,0 +1,14 @@
+{
+  "name": "student-service",
+  "version": "1.0.0",
+  "description": "Student management microservice",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.1.0",
+    "pg": "^8.23.0"
+  }
+}

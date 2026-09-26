@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Management System</h1>
+
+        <div class="login-section">
+            <h2>Login</h2>
+
+            <input type="email" id="email" placeholder="Enter email">
+
+            <input type="password" id="password" placeholder="Enter password">
+
+            <button onclick="login()">Login</button>
+
+            <p id="login-message"></p>
+        </div>
+
+        <div class="student-section">
+
+            <h2>Add Student</h2>
+
+            <input type="text" id="studentName" placeholder="Student Name">
+
+            <input type="email" id="studentEmail" placeholder="Student Email">
+
+            <input type="text" id="studentCourse" placeholder="Course">
+
+            <button onclick="addStudent()">Add Student</button>
+
+            <h2>Students</h2>
+
+            <div id="studentList">
+                No students added yet.
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

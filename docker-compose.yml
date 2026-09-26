@@ -1,0 +1,46 @@
+services:
+
+  frontend:
+    build: ./frontend
+    container_name: student-frontend
+    ports:
+      - "8081:80"
+    depends_on:
+      - auth-service
+      - student-service
+
+  auth-service:
+    build: ./auth-service
+    container_name: auth-service
+    ports:
+      - "3001:3001"
+
+  student-service:
+    build: ./student-service
+    container_name: student-service
+    ports:
+      - "3002:3002"
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: studentsdb
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16
+    container_name: student-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: studentsdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  postgres-data:
